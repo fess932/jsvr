@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/webxr-polyfill@latest/build/webxr-polyfill.js'></script>
+    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;" webxr="optionalFeatures:  hit-test;"
+        ar-hit-test="target:#gltf-model;" background="color: transparent">
+        <a-entity id="gltf-model"></a-entity>
+
+        <body style='margin : 0px; overflow: hidden;'>
+            <a-entity position="0 0.5 0" rotation="0 45 0" gltf-model="./goat.glb"></a-entity>
+
+            <!-- Animation 
+    <a-animation attribute="rotation"
+            to="0 360 0"
+            repeat="indefinite"
+            dur="5000"
+            easing="linear"></a-animation>
+            -->
+            <!-- Directional Light -->
+            <a-entity light="type: directional;
+                   castShadow: true;
+                   intensity: 0.4;
+                   castShadow: true;" position="5 0 0"></a-entity>
+            <!-- Ambient Light -->
+            <a-entity light="type: ambient; color: #CCC">
+            </a-entity>
+            <!-- Light -->
+            <a-sky color="skyblue"></a-sky>
+            <a-sky visible="false"></a-sky>
+            <!-- Camera -->
+            <a-marker-camera preset='hiro'></a-marker-camera>
+            <a-camera>
+                <a-cursor></a-cursor>
+            </a-camera>
+
+    </a-scene>
+</body>
+
+</html>
